@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.nickpowers.cordova"
+        version="0.0.0">
+
+  <name>Watson Speech plugin</name>
+  <keywords>cordova,speech,text,recognition</keywords>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <asset src="www/WatsonSpeech.js" target="js/WatsonSpeech.js"/>
+
+  <js-module src="www/WatsonSpeech.js" name="WatsonSpeech">
+    <clobbers target="WatsonSpeech" />
+  </js-module>
+
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="WatsonSpeechPlugin">
+        <param name="android-package" value="com.nickpowers.cordova.WatsonSpeechPlugin"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/WatsonSpeechPlugin.java" target-dir="src/com/nickpowers/cordova/"/>
+  </platform>
+
+</plugin>
